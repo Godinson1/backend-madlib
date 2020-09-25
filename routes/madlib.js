@@ -236,4 +236,20 @@ router.get("/retrieve/:id", async (req, res) => {
   }
 });
 
+router.delete("/", async (req, res) => {
+  try {
+    await db.Madlib.destroy({
+      truncate: true,
+    });
+
+    return res
+      .status(200)
+      .json({ status: "success", message: "Deleted all records" });
+  } catch (err) {
+    return res
+      .status(500)
+      .json({ status: "error", message: "Something went wrong" });
+  }
+});
+
 module.exports = router;
