@@ -2,7 +2,6 @@ const router = require("express").Router();
 const db = require("../models");
 const config = require("../helpers/secrets");
 const isEmail = require("../validator/validators");
-const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
 //Register Admin
@@ -73,13 +72,6 @@ router.route("/login").post(async (req, res) => {
     return res
       .status(400)
       .json({ message: `Admin with ${email} does not exist` });
-
-  /*const isMatched = await bcrypt.compare(
-    password,
-    admin.Admin.dataValues.password
-  );
-  if (!isMatched) res.status(400).json({ message: "Invalid Credentials" });
-  */
 
   try {
     jwt.sign(
