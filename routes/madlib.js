@@ -199,8 +199,8 @@ router.post("/advanced", async (req, res) => {
   }
 });
 
-router.get("/retrieve", async (req, res) => {
-  const { email } = req.body;
+router.get("/retrieve/:id", async (req, res) => {
+  const email = req.params.id;
 
   try {
     if (!isEmail(email))
