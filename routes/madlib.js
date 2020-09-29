@@ -33,7 +33,9 @@ router.post("/easy", async (req, res) => {
     } = req.body;
 
     if (!isEmail(email))
-      return res.status(400).json({ message: "Must be a valid email address" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Must be a valid email address" });
 
     const isExist = await db.Madlib.findAll({
       where: {
@@ -89,7 +91,9 @@ router.post("/intermediate", async (req, res) => {
     } = req.body;
 
     if (!isEmail(email))
-      return res.status(400).json({ message: "Must be a valid email address" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Must be a valid email address" });
 
     const isExist = await db.Madlib.findAll({
       where: {
@@ -154,7 +158,9 @@ router.post("/advanced", async (req, res) => {
     } = req.body;
 
     if (!isEmail(email))
-      return res.status(400).json({ message: "Must be a valid email address" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Must be a valid email address" });
 
     const isExist = await db.Madlib.findAll({
       where: {
@@ -204,7 +210,9 @@ router.get("/retrieve/:id", async (req, res) => {
 
   try {
     if (!isEmail(email))
-      return res.status(400).json({ message: "Must be a valid email address" });
+      return res
+        .status(400)
+        .json({ status: "error", message: "Must be a valid email address" });
 
     const data = await db.Madlib.findAll({
       where: {

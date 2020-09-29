@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const madlibRoutes = require("./routes/madlib");
 const adminRoutes = require("./routes/admin");
-const path = require("path");
 
 const app = express();
 app.use(express.json());
